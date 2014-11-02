@@ -1,4 +1,4 @@
-faecherYo
-=========
+yoFaecherrad
+============
 
-Yo for Fächerrad
+Yo for Faecherrad
