@@ -52,8 +52,6 @@ if(isset($_GET['location'])&&(isset($_GET['username']))){
 $bikes = getBikeLocationArray($bikedataURL, $countryID);
 $nextBikeLocation = getNextBike($location, $bikes);
 
-var_dump($bikes);
-
 $ch = curl_init();
 curl_setopt($ch,CURLOPT_URL, $apiURL);
 curl_setopt($ch,CURLOPT_POST, 3);
