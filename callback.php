@@ -15,11 +15,11 @@ function distance($a, $b){
     return $dist;
 }
 
-function getBikeLocationArray($dataURL){
+function getBikeLocationArray($dataURL, $countryID){
   $xml = simplexml_load_file($dataURL);
   $json = json_encode($xml);
   $array = json_decode($json,TRUE);
-  $array = $array["country"][26]["city"]["place"];
+  $array = $array["country"][$countryID]["city"]["place"];
   return $array;
 }
 
@@ -49,8 +49,10 @@ if(isset($_GET['location'])&&(isset($_GET['username']))){
   exit();
 }
 
-$bikes = getBikeLocationArray($bikedataURL);
+$bikes = getBikeLocationArray($bikedataURL, $countryID);
 $nextBikeLocation = getNextBike($location, $bikes);
+
+var_dump($bikes);
 
 $ch = curl_init();
 curl_setopt($ch,CURLOPT_URL, $apiURL);
